@@ -178,8 +178,14 @@ RRF_K=60
 RRF_TOP_K=20
 FINAL_TOP_K=5
 ```
+### 3. Start Redis Stack (Valkey)
+Start the Redis Stack server via Docker on port `6379` to enable the semantic caching layer:
 
-### 3. Run the Application
+```bash
+docker run -d -p 6379:6379 redis/redis-stack-server:latest
+```
+
+### 4. Run the Application
 Ensure you have Valkey (or Redis Stack) running locally on port `6379`, then execute the bundled launcher script which manages both the FastAPI backend and Python HTTP frontend:
 
 ```PowerShell
