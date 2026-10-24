@@ -1,0 +1,283 @@
+INFO:     Started server process [36940]
+INFO:     Waiting for application startup.
+{"event": "\u2550\u2550\u2550 RAG Service starting up \u2550\u2550\u2550", "level": "info", "logger": "main", "timestamp": "2026-08-29T17:48:15.481814Z"}
+{"event": "Loading embedding model: all-miniLM-L6-v2", "level": "info", "logger": "main", "timestamp": "2026-08-29T17:48:15.482758Z"}
+{"event": "Loading embedding model: all-miniLM-L6-v2", "level": "info", "logger": "vectorstore.embedder", "timestamp": "2026-08-29T17:48:15.482953Z"}
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|##########| 103/103 [00:00<00:00, 7372.49it/s]
+{"event": "Embedding model loaded successfully", "level": "info", "logger": "vectorstore.embedder", "timestamp": "2026-08-29T17:48:28.797335Z"}
+{"event": "Connecting to Pinecone (index=rag-docs)...", "level": "info", "logger": "main", "timestamp": "2026-08-29T17:48:28.799273Z"}
+{"event": "Connecting to Pinecone (index=rag-docs, cloud=aws, region=us-east-1)", "level": "info", "logger": "vectorstore.store", "timestamp": "2026-08-29T17:48:28.799390Z"}
+{"event": "Pinecone ready: index=rag-docs", "level": "info", "logger": "vectorstore.store", "timestamp": "2026-08-29T17:48:32.453230Z"}
+{"event": "Building BM25 index from existing corpus...", "level": "info", "logger": "main", "timestamp": "2026-08-29T17:48:32.454579Z"}
+{"event": "BM25 index built with 3507 documents", "level": "info", "logger": "retrieval.bm25_index", "timestamp": "2026-08-29T17:48:57.896322Z"}
+{"event": "BM25 ready: 3507 documents indexed", "level": "info", "logger": "main", "timestamp": "2026-08-29T17:48:57.898994Z"}
+{"event": "Initialising Groq client: model=openai/gpt-oss-20b", "level": "info", "logger": "main", "timestamp": "2026-08-29T17:48:57.899178Z"}
+{"event": "Initialising Groq (model=openai/gpt-oss-20b)", "level": "info", "logger": "generation.groq_client", "timestamp": "2026-08-29T17:48:57.899292Z"}
+{"event": "Groq client ready", "level": "info", "logger": "generation.groq_client", "timestamp": "2026-08-29T17:48:58.908232Z"}
+{"event": "Connecting to Valkey at localhost:6379 ...", "level": "info", "logger": "main", "timestamp": "2026-08-29T17:48:58.908459Z"}
+{"event": "Valkey connected: localhost:6379  db=0", "level": "info", "logger": "utils.valkey_client", "timestamp": "2026-08-29T17:48:58.917849Z"}
+{"event": "Initialising semantic cache (threshold=0.92 ttl=300s)...", "level": "info", "logger": "main", "timestamp": "2026-08-29T17:48:58.918035Z"}
+{"event": "Valkey HNSW index 'idx:semcache' already exists \u2014 reusing", "level": "info", "logger": "utils.semantic_cache", "timestamp": "2026-08-29T17:48:58.919427Z"}
+{"event": "Semantic cache ready: HNSW index active, 0 entries in Valkey", "level": "info", "logger": "main", "timestamp": "2026-08-29T17:48:58.921251Z"}
+{"event": "Loading cross-encoder reranker: cross-encoder/ms-marco-MiniLM-L-6-v2", "level": "info", "logger": "main", "timestamp": "2026-08-29T17:48:58.921408Z"}
+{"event": "Loading cross-encoder reranker: cross-encoder/ms-marco-MiniLM-L-6-v2", "level": "info", "logger": "retrieval.reranker", "timestamp": "2026-08-29T17:48:58.921497Z"}
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|##########| 105/105 [00:00<00:00, 3254.52it/s]
+{"event": "Cross-encoder reranker loaded", "level": "info", "logger": "retrieval.reranker", "timestamp": "2026-08-29T17:49:08.789866Z"}
+{"event": "Cross-encoder reranker ready", "level": "info", "logger": "main", "timestamp": "2026-08-29T17:49:08.790123Z"}
+{"event": "\u2550\u2550\u2550 RAG Service is ready \u2550\u2550\u2550", "level": "info", "logger": "main", "timestamp": "2026-08-29T17:49:08.790245Z"}
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+{"event": "request_id=b3864b52ad method=GET path=/health status=200 latency_ms=1098.7", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:50:38.763699Z"}
+{"event": "request_id=fcceb5c0b1 method=GET path=/health status=200 latency_ms=1169.1", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:50:46.696185Z"}
+{"event": "request_id=57676446db method=GET path=/health status=200 latency_ms=1085.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:50:54.586232Z"}
+{"event": "request_id=bce00fe323 method=GET path=/health status=200 latency_ms=1136.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:51:02.652067Z"}
+{"event": "request_id=00ecad1472 method=GET path=/health status=200 latency_ms=1287.5", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:51:10.818486Z"}
+{"event": "request_id=945c836f08 method=GET path=/health status=200 latency_ms=1156.7", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:51:18.662661Z"}
+{"event": "request_id=b0dc7d72ff method=GET path=/health status=200 latency_ms=1318.1", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:51:26.824628Z"}
+{"event": "request_id=ca19e7c3c8 method=GET path=/health status=200 latency_ms=987.5", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:51:34.561759Z"}
+{"event": "request_id=3817ca63f8 method=GET path=/health status=200 latency_ms=1225.6", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:51:42.770910Z"}
+{"event": "request_id=9d8461942e method=GET path=/health status=200 latency_ms=1089.8", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:51:50.631737Z"}
+{"event": "request_id=2b49ea620c method=GET path=/health status=200 latency_ms=1233.5", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:51:58.749729Z"}
+{"event": "request_id=02494199b5 method=GET path=/health status=200 latency_ms=1149.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:52:06.645619Z"}
+{"event": "request_id=8e6a354aa4 method=GET path=/health status=200 latency_ms=1106.2", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:54:48.625700Z"}
+{"event": "request_id=5f1fbde0e1 method=GET path=/health status=200 latency_ms=1300.6", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:54:56.805659Z"}
+{"event": "request_id=ad7fb016f3 method=GET path=/health status=200 latency_ms=1233.0", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:55:04.729617Z"}
+{"event": "request_id=9816dc3b29 method=GET path=/health status=200 latency_ms=1080.9", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:55:12.582058Z"}
+{"event": "request_id=17c3da8e3b method=GET path=/health status=200 latency_ms=1081.2", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:55:20.558542Z"}
+{"event": "request_id=a56556546f method=GET path=/health status=200 latency_ms=1073.8", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:55:28.618418Z"}
+{"event": "request_id=17a5332c03 method=GET path=/health status=200 latency_ms=1270.3", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:55:36.833577Z"}
+{"event": "request_id=cfbef9755b method=GET path=/health status=200 latency_ms=1084.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:55:44.605074Z"}
+{"event": "request_id=73417b6a92 method=GET path=/health status=200 latency_ms=1227.8", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:55:52.749869Z"}
+{"event": "request_id=3e99fed676 method=GET path=/health status=200 latency_ms=1090.2", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:56:00.568577Z"}
+{"event": "request_id=c0fb7a6ba6 method=GET path=/health status=200 latency_ms=1350.0", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:56:08.899487Z"}
+{"event": "request_id=bfa69fb745 method=GET path=/health status=200 latency_ms=1087.7", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:56:16.611939Z"}
+{"event": "request_id=fd41215722 method=GET path=/health status=200 latency_ms=1250.5", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:56:24.766650Z"}
+{"event": "request_id=172ea152b2 method=GET path=/health status=200 latency_ms=1111.0", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:56:32.635771Z"}
+{"event": "request_id=7337a1ffac method=GET path=/health status=200 latency_ms=1219.2", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:56:40.732348Z"}
+{"event": "request_id=e09a3c9857 method=GET path=/health status=200 latency_ms=1037.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:56:48.518655Z"}
+{"event": "request_id=f315b84cb4 method=GET path=/health status=200 latency_ms=1253.0", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:56:56.818886Z"}
+{"event": "request_id=6f78d31f10 method=GET path=/health status=200 latency_ms=1184.6", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:57:04.725486Z"}
+{"event": "request_id=644dd4768d method=GET path=/health status=200 latency_ms=1123.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:57:12.728380Z"}
+{"event": "request_id=c5ea67f0b8 method=GET path=/health status=200 latency_ms=1154.3", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:57:20.652833Z"}
+{"event": "request_id=5de53bd747 method=GET path=/health status=200 latency_ms=373.0", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:57:23.290279Z"}
+INFO:     127.0.0.1:65481 - "GET /health HTTP/1.1" 200 OK
+{"event": "request_id=a9c9a18ff8 method=OPTIONS path=/api/v1/documents status=200 latency_ms=0.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:57:27.182756Z"}
+INFO:     127.0.0.1:57595 - "OPTIONS /api/v1/documents HTTP/1.1" 200 OK
+{"event": "request_id=d77284c9b6 method=GET path=/api/v1/documents status=200 latency_ms=25462.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:57:52.649492Z"}
+INFO:     127.0.0.1:57595 - "GET /api/v1/documents HTTP/1.1" 200 OK
+{"event": "request_id=d3e0fddab4 method=GET path=/health status=200 latency_ms=270.2", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:57:52.923367Z"}
+{"event": "request_id=6436f4629e method=GET path=/health status=200 latency_ms=556.1", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:57:53.211698Z"}
+{"event": "request_id=0f0e7341b4 method=GET path=/health status=200 latency_ms=998.8", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:57:59.546933Z"}
+{"event": "request_id=e19555c4a6 method=GET path=/health status=200 latency_ms=1210.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:58:07.738477Z"}
+{"event": "request_id=0cccb3770a method=GET path=/health status=200 latency_ms=1077.0", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:58:15.609798Z"}
+{"event": "request_id=26056fe303 method=GET path=/health status=200 latency_ms=1067.3", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:58:23.605856Z"}
+{"event": "request_id=a0ff3fbe22 method=GET path=/health status=200 latency_ms=1047.1", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:58:31.535369Z"}
+{"event": "request_id=a5eb578c27 method=GET path=/health status=200 latency_ms=1073.3", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:58:39.567201Z"}
+{"event": "request_id=9c109a65d1 method=GET path=/health status=200 latency_ms=1059.6", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:58:47.530070Z"}
+{"event": "request_id=39f982de9b method=GET path=/health status=200 latency_ms=1065.8", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:58:55.627160Z"}
+{"event": "request_id=f831f61612 method=GET path=/health status=200 latency_ms=1070.7", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:59:03.597911Z"}
+{"event": "request_id=6f6a80b748 method=GET path=/health status=200 latency_ms=1099.8", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:59:11.623660Z"}
+{"event": "request_id=e329bbf51c method=GET path=/health status=200 latency_ms=1034.8", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:59:19.542523Z"}
+{"event": "request_id=1c20c6a3de method=GET path=/health status=200 latency_ms=1241.7", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:59:27.709421Z"}
+{"event": "request_id=9f190c89ee method=GET path=/health status=200 latency_ms=1194.9", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:59:35.661883Z"}
+{"event": "request_id=cb0ebdb1ec method=GET path=/health status=200 latency_ms=1366.5", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:59:43.932805Z"}
+{"event": "request_id=3ec09f3e90 method=GET path=/health status=200 latency_ms=1216.8", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:59:51.765407Z"}
+{"event": "request_id=f7f632b90f method=GET path=/health status=200 latency_ms=1010.7", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T17:59:59.541642Z"}
+{"event": "request_id=f4b504542d method=GET path=/health status=200 latency_ms=1133.6", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:00:07.657520Z"}
+{"event": "request_id=386075132f method=GET path=/health status=200 latency_ms=1117.1", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:00:15.606096Z"}
+{"event": "request_id=26f9a6e578 method=GET path=/health status=200 latency_ms=1059.5", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:00:23.522995Z"}
+{"event": "request_id=300bc080d2 method=GET path=/health status=200 latency_ms=1081.6", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:00:31.656017Z"}
+{"event": "request_id=74daecad3a method=GET path=/health status=200 latency_ms=1057.5", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:00:39.615229Z"}
+{"event": "request_id=b17b0df960 method=GET path=/health status=200 latency_ms=1151.5", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:00:47.693859Z"}
+{"event": "request_id=df864ce183 method=GET path=/health status=200 latency_ms=1149.7", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:04:41.738328Z"}
+{"event": "request_id=af09650c0c method=GET path=/health status=200 latency_ms=1172.5", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:04:49.687127Z"}
+{"event": "request_id=def0580034 method=GET path=/health status=200 latency_ms=1049.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:04:57.567595Z"}
+{"event": "request_id=6161e7a86f method=GET path=/health status=200 latency_ms=1098.1", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:05:05.700503Z"}
+{"event": "request_id=cf8225d94c method=GET path=/health status=200 latency_ms=1029.1", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:05:13.512671Z"}
+{"event": "request_id=d30a5c6d1d method=GET path=/health status=200 latency_ms=1065.0", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:05:21.551605Z"}
+{"event": "request_id=eef85bc89e method=GET path=/health status=200 latency_ms=1360.7", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:05:29.829976Z"}
+{"event": "request_id=e732f4a024 method=GET path=/health status=200 latency_ms=1037.8", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:05:37.629534Z"}
+{"event": "request_id=7df02754f1 method=GET path=/health status=200 latency_ms=1065.1", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:05:45.560247Z"}
+{"event": "request_id=fe028827ad method=GET path=/health status=200 latency_ms=1052.1", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:05:53.540271Z"}
+{"event": "request_id=9313434a2e method=GET path=/health status=200 latency_ms=1100.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:06:01.557636Z"}
+{"event": "request_id=7c2a8b6a50 method=GET path=/health status=200 latency_ms=1134.0", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:06:09.692175Z"}
+{"event": "request_id=89eed95f76 method=GET path=/health status=200 latency_ms=1035.3", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:06:17.563085Z"}
+{"event": "request_id=b74da1d622 method=GET path=/health status=200 latency_ms=1039.7", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:06:25.598839Z"}
+{"event": "request_id=74fe2a6302 method=GET path=/health status=200 latency_ms=1096.7", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:06:33.644025Z"}
+{"event": "request_id=f5a84a10c2 method=GET path=/health status=200 latency_ms=1118.5", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:06:41.631035Z"}
+{"event": "request_id=4360e29bed method=GET path=/health status=200 latency_ms=1057.7", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:06:49.526215Z"}
+{"event": "request_id=aba7b1293a method=GET path=/health status=200 latency_ms=1097.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:06:57.668536Z"}
+{"event": "request_id=1d70c9f9ac method=GET path=/health status=200 latency_ms=1140.6", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:07:05.693852Z"}
+{"event": "request_id=4469a2c134 method=GET path=/health status=200 latency_ms=1104.5", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:07:13.616413Z"}
+{"event": "request_id=83b467d87b method=GET path=/health status=200 latency_ms=1064.2", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:07:21.549680Z"}
+{"event": "request_id=454f3fd6d9 method=GET path=/health status=200 latency_ms=1175.9", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:07:29.644381Z"}
+{"event": "request_id=5d14b7139f method=GET path=/health status=200 latency_ms=1211.3", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:07:37.755268Z"}
+{"event": "request_id=6cd284f1a1 method=GET path=/health status=200 latency_ms=1154.5", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:07:45.696216Z"}
+{"event": "request_id=2ebb76899b method=GET path=/health status=200 latency_ms=1200.3", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:07:53.710280Z"}
+{"event": "request_id=93cbb92922 method=GET path=/health status=200 latency_ms=1155.2", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:08:01.627919Z"}
+{"event": "request_id=c05ff43f6d method=GET path=/health status=200 latency_ms=1213.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:08:09.692133Z"}
+{"event": "request_id=fe6915e46a method=GET path=/health status=200 latency_ms=1243.8", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:08:17.791459Z"}
+{"event": "request_id=c3977cd77b method=GET path=/health status=200 latency_ms=1095.6", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:08:25.659860Z"}
+{"event": "request_id=3d7e6b8472 method=GET path=/health status=200 latency_ms=980.1", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:08:33.523329Z"}
+{"event": "request_id=145f30f769 method=GET path=/health status=200 latency_ms=1106.9", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:08:41.645514Z"}
+{"event": "request_id=c0f86a02c2 method=GET path=/health status=200 latency_ms=1049.6", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:08:49.536908Z"}
+{"event": "request_id=75511f6a9f method=GET path=/health status=200 latency_ms=1128.9", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:08:57.618774Z"}
+{"event": "request_id=147b432736 method=GET path=/health status=200 latency_ms=1198.1", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:09:05.669600Z"}
+{"event": "request_id=b7dc136a0d method=GET path=/health status=200 latency_ms=1133.7", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:09:13.698358Z"}
+{"event": "request_id=69d3b7f22c method=GET path=/health status=200 latency_ms=1103.1", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:09:21.649813Z"}
+{"event": "request_id=14b24524e3 method=GET path=/health status=200 latency_ms=1108.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:09:29.631376Z"}
+{"event": "request_id=1e4edbe586 method=GET path=/health status=200 latency_ms=1088.3", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:09:37.580780Z"}
+{"event": "request_id=d8630dd786 method=GET path=/health status=200 latency_ms=1211.0", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:09:45.690290Z"}
+{"event": "request_id=1d1dd91c3c method=GET path=/health status=200 latency_ms=1044.3", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:09:53.613389Z"}
+{"event": "request_id=c44fc3a079 method=GET path=/health status=200 latency_ms=1100.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:10:01.694995Z"}
+{"event": "request_id=72eee8cbc8 method=GET path=/health status=200 latency_ms=1093.3", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:10:09.661642Z"}
+{"event": "request_id=99a8a088de method=GET path=/health status=200 latency_ms=1114.5", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:10:17.636522Z"}
+{"event": "request_id=2dd8bdc9d7 method=GET path=/health status=200 latency_ms=1184.9", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:10:25.695164Z"}
+{"event": "request_id=dd95abcf9e method=GET path=/health status=200 latency_ms=1132.2", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:10:33.645196Z"}
+{"event": "request_id=885be080bc method=GET path=/health status=200 latency_ms=1125.0", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:10:41.641700Z"}
+{"event": "request_id=2d56e07712 method=GET path=/health status=200 latency_ms=1051.6", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:10:49.543323Z"}
+{"event": "request_id=fa2912cc34 method=GET path=/health status=200 latency_ms=1086.3", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:10:57.640835Z"}
+{"event": "request_id=d9c96df234 method=GET path=/health status=200 latency_ms=1098.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:11:05.594499Z"}
+{"event": "request_id=858cf46507 method=GET path=/health status=200 latency_ms=1081.8", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:11:13.603379Z"}
+{"event": "request_id=95e6a78d37 method=GET path=/health status=200 latency_ms=1150.3", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:17:32.841573Z"}
+{"event": "request_id=42722f5d93 method=GET path=/health status=200 latency_ms=1085.6", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:20:19.628222Z"}
+{"event": "request_id=8f0763841b method=GET path=/health status=200 latency_ms=1057.5", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:23:02.662824Z"}
+{"event": "request_id=e94aabe69e method=GET path=/health status=200 latency_ms=1136.5", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:23:10.691361Z"}
+{"event": "request_id=1cdc8614ad method=GET path=/health status=200 latency_ms=1012.7", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:23:18.552104Z"}
+{"event": "request_id=01d0f0c846 method=GET path=/health status=200 latency_ms=1040.1", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:23:26.584013Z"}
+{"event": "request_id=1ca65d0979 method=GET path=/health status=200 latency_ms=1055.2", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:23:34.589110Z"}
+{"event": "request_id=e9fe9c145f method=GET path=/health status=200 latency_ms=1091.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:23:42.565723Z"}
+{"event": "request_id=c9a62a7c6c method=GET path=/health status=200 latency_ms=1127.1", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:23:50.592216Z"}
+{"event": "request_id=397ba4a63b method=GET path=/health status=200 latency_ms=1168.8", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:26:53.693219Z"}
+{"event": "request_id=720566f610 method=GET path=/health status=200 latency_ms=1140.7", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:27:01.636870Z"}
+{"event": "request_id=42ae9c46a7 method=GET path=/health status=200 latency_ms=1084.1", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:27:09.577106Z"}
+{"event": "request_id=951b18e4f5 method=GET path=/health status=200 latency_ms=1223.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:27:17.697476Z"}
+{"event": "request_id=89057c2b33 method=GET path=/health status=200 latency_ms=1144.2", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:27:25.643094Z"}
+{"event": "request_id=3c85b1702d method=GET path=/health status=200 latency_ms=1003.2", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:27:33.577298Z"}
+{"event": "request_id=82970b41f0 method=GET path=/health status=200 latency_ms=1082.9", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:27:41.641541Z"}
+{"event": "request_id=388cf02522 method=GET path=/health status=200 latency_ms=1041.7", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:27:49.544428Z"}
+{"event": "request_id=698f8a7e5d method=GET path=/health status=200 latency_ms=1130.2", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:27:57.691656Z"}
+{"event": "request_id=fed0b2fd6b method=GET path=/health status=200 latency_ms=1082.1", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:28:05.554406Z"}
+{"event": "request_id=bc1ea3cd80 method=GET path=/health status=200 latency_ms=1085.9", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:28:13.629565Z"}
+{"event": "request_id=bd36b78610 method=GET path=/health status=200 latency_ms=1168.0", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:28:21.711550Z"}
+{"event": "request_id=c59668b2ae method=GET path=/health status=200 latency_ms=1087.7", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:28:29.630113Z"}
+{"event": "request_id=ed8435a191 method=GET path=/health status=200 latency_ms=1159.0", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:28:37.716585Z"}
+{"event": "request_id=2b9b823634 method=GET path=/health status=200 latency_ms=1041.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:28:45.596072Z"}
+{"event": "request_id=01992d9692 method=GET path=/health status=200 latency_ms=1084.2", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:28:53.641478Z"}
+{"event": "request_id=8c8c998b89 method=GET path=/health status=200 latency_ms=1079.9", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:29:01.637444Z"}
+{"event": "request_id=e7046dbaea method=GET path=/health status=200 latency_ms=1078.3", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:29:09.626135Z"}
+{"event": "request_id=40540a1c62 method=GET path=/health status=200 latency_ms=1116.1", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:29:17.581182Z"}
+{"event": "request_id=8d1638850e method=GET path=/health status=200 latency_ms=1116.9", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:29:25.690140Z"}
+{"event": "request_id=6c9eb3c6d4 method=GET path=/health status=200 latency_ms=1038.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:29:33.520407Z"}
+{"event": "request_id=5b2426b50c method=GET path=/health status=200 latency_ms=1220.9", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:29:41.701243Z"}
+{"event": "request_id=b19b010adc method=GET path=/health status=200 latency_ms=1212.3", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:29:49.692654Z"}
+{"event": "request_id=282383201d method=GET path=/health status=200 latency_ms=1063.9", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:29:57.547205Z"}
+{"event": "request_id=e52753fa00 method=GET path=/health status=200 latency_ms=1168.7", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:30:05.730289Z"}
+{"event": "request_id=02ad72f6a8 method=GET path=/health status=200 latency_ms=1299.0", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:30:13.850579Z"}
+{"event": "request_id=27e4d2db31 method=GET path=/health status=200 latency_ms=1146.0", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:30:21.644212Z"}
+{"event": "request_id=c4e16ed985 method=GET path=/health status=200 latency_ms=1127.2", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:30:29.692404Z"}
+{"event": "request_id=9630ee9a3d method=GET path=/health status=200 latency_ms=1246.2", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:30:37.689451Z"}
+{"event": "request_id=40d1e665fc method=GET path=/health status=200 latency_ms=1036.9", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:30:45.509539Z"}
+{"event": "request_id=6860b27ab1 method=GET path=/health status=200 latency_ms=1141.0", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:30:53.699533Z"}
+{"event": "request_id=0e1d1b49a2 method=GET path=/health status=200 latency_ms=1055.7", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:31:01.626687Z"}
+{"event": "request_id=2831ee2d85 method=GET path=/health status=200 latency_ms=1119.0", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:31:09.662162Z"}
+{"event": "request_id=67f233f25c method=GET path=/health status=200 latency_ms=1127.2", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:31:17.681966Z"}
+{"event": "request_id=04f74cd8bd method=GET path=/health status=200 latency_ms=1062.9", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:31:25.572591Z"}
+{"event": "request_id=996661b4be method=GET path=/health status=200 latency_ms=1069.5", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:31:33.590280Z"}
+{"event": "request_id=d607da0bae method=GET path=/health status=200 latency_ms=1051.1", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:31:41.536717Z"}
+{"event": "request_id=6e9c16f2e4 method=GET path=/health status=200 latency_ms=1169.7", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:31:49.691262Z"}
+{"event": "request_id=96b6b82403 method=GET path=/health status=200 latency_ms=1046.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:31:57.540670Z"}
+{"event": "request_id=90c5511569 method=GET path=/health status=200 latency_ms=1015.9", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:32:05.592522Z"}
+{"event": "request_id=63dea4f892 method=GET path=/health status=200 latency_ms=1026.3", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:32:13.482968Z"}
+{"event": "request_id=c642da802b method=GET path=/health status=200 latency_ms=1104.2", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:32:21.571020Z"}
+{"event": "request_id=d5eecd4759 method=GET path=/health status=200 latency_ms=1158.9", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:32:29.628030Z"}
+{"event": "request_id=3b7d66d92a method=GET path=/health status=200 latency_ms=1009.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:32:37.597310Z"}
+{"event": "request_id=68f5ff7016 method=GET path=/health status=200 latency_ms=1336.5", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:32:45.860077Z"}
+{"event": "request_id=229a45b285 method=GET path=/health status=200 latency_ms=1131.9", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:32:53.716320Z"}
+{"event": "request_id=f796c80982 method=GET path=/health status=200 latency_ms=1008.3", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:33:01.527196Z"}
+{"event": "request_id=e75b4c2b72 method=GET path=/health status=200 latency_ms=1114.0", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:33:09.678219Z"}
+{"event": "request_id=b4270976a0 method=GET path=/health status=200 latency_ms=1069.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:33:17.529930Z"}
+{"event": "request_id=b48595ecf8 method=GET path=/health status=200 latency_ms=1062.5", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:33:25.536437Z"}
+{"event": "request_id=e9fa528420 method=GET path=/health status=200 latency_ms=1065.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:33:33.568250Z"}
+{"event": "request_id=91f4e5f04a method=GET path=/health status=200 latency_ms=1270.2", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:33:41.787583Z"}
+{"event": "request_id=18bfcc8633 method=GET path=/health status=200 latency_ms=1341.2", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:33:49.854812Z"}
+{"event": "request_id=b109b4d276 method=GET path=/health status=200 latency_ms=1182.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:33:57.716164Z"}
+{"event": "request_id=ebf346710e method=GET path=/health status=200 latency_ms=1263.2", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:34:05.796001Z"}
+{"event": "request_id=3cafe1e87c method=GET path=/health status=200 latency_ms=1042.0", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:34:13.589507Z"}
+{"event": "request_id=16a498156a method=GET path=/health status=200 latency_ms=1044.3", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:34:21.569660Z"}
+{"event": "request_id=06e3a9ff77 method=GET path=/health status=200 latency_ms=1312.7", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:34:29.852739Z"}
+{"event": "request_id=0f5a14ebda method=GET path=/health status=200 latency_ms=1200.2", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:34:37.742669Z"}
+{"event": "request_id=23d6892964 method=GET path=/health status=200 latency_ms=1166.7", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:34:45.673935Z"}
+{"event": "request_id=cabadfc333 method=GET path=/health status=200 latency_ms=1098.6", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:34:53.624245Z"}
+{"event": "request_id=570bd894ee method=GET path=/health status=200 latency_ms=1309.3", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:35:01.808063Z"}
+{"event": "request_id=7d18b13d81 method=GET path=/health status=200 latency_ms=1084.8", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:35:09.623269Z"}
+{"event": "request_id=94db09bea2 method=GET path=/health status=200 latency_ms=1093.7", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:35:17.660062Z"}
+{"event": "request_id=a4189197cc method=GET path=/health status=200 latency_ms=1111.5", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:35:25.563038Z"}
+{"event": "request_id=361fc69dc6 method=GET path=/health status=200 latency_ms=1070.2", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:35:33.623451Z"}
+{"event": "request_id=3a11fe16fc method=GET path=/health status=200 latency_ms=1074.9", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:35:41.618224Z"}
+{"event": "request_id=f0f40455d5 method=GET path=/health status=200 latency_ms=1061.3", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:35:49.530265Z"}
+{"event": "request_id=f0a052303a method=GET path=/health status=200 latency_ms=1006.7", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:35:57.460495Z"}
+{"event": "request_id=a58874ea97 method=GET path=/health status=200 latency_ms=1132.2", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:36:05.607706Z"}
+{"event": "request_id=bf21117a8d method=GET path=/health status=200 latency_ms=1028.5", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:36:13.492468Z"}
+{"event": "request_id=8b969c7f2e method=GET path=/health status=200 latency_ms=1171.6", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:36:21.623375Z"}
+{"event": "request_id=c6f06c3860 method=GET path=/health status=200 latency_ms=1213.5", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:36:29.693897Z"}
+{"event": "request_id=501dfb62f2 method=GET path=/health status=200 latency_ms=1223.5", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:36:37.695295Z"}
+{"event": "request_id=da8858b8e8 method=GET path=/health status=200 latency_ms=1082.3", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:36:57.686825Z"}
+{"event": "request_id=eb71af084d method=GET path=/health status=200 latency_ms=1038.3", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:37:06.516180Z"}
+{"event": "request_id=c6c112aa44 method=GET path=/health status=200 latency_ms=1003.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:37:14.607950Z"}
+{"event": "request_id=0e398285c4 method=GET path=/health status=200 latency_ms=1004.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:37:22.508683Z"}
+{"event": "request_id=7ce5cafef0 method=GET path=/health status=200 latency_ms=1245.5", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:37:30.772402Z"}
+{"event": "request_id=4d87c03126 method=GET path=/health status=200 latency_ms=1071.3", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:37:38.559004Z"}
+{"event": "request_id=8dbd6b4bde method=GET path=/health status=200 latency_ms=1089.5", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:37:46.634552Z"}
+{"event": "request_id=22f67b9c7a method=GET path=/health status=200 latency_ms=1291.7", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:37:54.811656Z"}
+{"event": "request_id=b1b0319a48 method=GET path=/health status=200 latency_ms=1283.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:38:02.812297Z"}
+{"event": "request_id=4450bfbab1 method=GET path=/health status=200 latency_ms=1117.5", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:38:10.653055Z"}
+{"event": "request_id=9212e837a9 method=GET path=/health status=200 latency_ms=992.6", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:38:18.577699Z"}
+INFO:     127.0.0.1:55504 - "GET /health HTTP/1.1" 200 OK
+{"event": "request_id=666f6f10e7 method=OPTIONS path=/api/v1/documents status=200 latency_ms=0.2", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:38:22.185164Z"}
+INFO:     127.0.0.1:65100 - "OPTIONS /api/v1/documents HTTP/1.1" 200 OK
+{"event": "request_id=2a2ab10c4a method=GET path=/api/v1/documents status=200 latency_ms=22364.7", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:38:44.552043Z"}
+INFO:     127.0.0.1:65100 - "GET /api/v1/documents HTTP/1.1" 200 OK
+{"event": "request_id=4712c53bce method=GET path=/api/v1/documents status=200 latency_ms=21913.6", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:39:07.627646Z"}
+INFO:     127.0.0.1:65100 - "GET /api/v1/documents HTTP/1.1" 200 OK
+{"event": "request_id=a526999d6e method=OPTIONS path=/api/v1/documents/Human-Nutrition-2020-Edition.pdf status=200 latency_ms=0.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:39:26.160947Z"}
+INFO:     127.0.0.1:49673 - "OPTIONS /api/v1/documents/Human-Nutrition-2020-Edition.pdf HTTP/1.1" 200 OK
+{"event": "Deleted 3507 chunks for doc_name='Human-Nutrition-2020-Edition.pdf'", "level": "info", "logger": "vectorstore.store", "timestamp": "2026-08-29T18:39:52.371460Z"}
+{"event": "BM25 build called with an empty corpus", "level": "warning", "logger": "retrieval.bm25_index", "timestamp": "2026-08-29T18:39:53.165217Z"}
+{"event": "Document deleted: doc=Human-Nutrition-2020-Edition.pdf chunks=3507 bm25_total=0", "level": "info", "logger": "api.routes.documents", "timestamp": "2026-08-29T18:39:53.182176Z"}
+{"event": "request_id=48f51ea683 method=DELETE path=/api/v1/documents/Human-Nutrition-2020-Edition.pdf status=200 latency_ms=27017.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:39:53.182929Z"}
+INFO:     127.0.0.1:49673 - "DELETE /api/v1/documents/Human-Nutrition-2020-Edition.pdf HTTP/1.1" 200 OK
+{"event": "request_id=41d28b39ee method=OPTIONS path=/api/v1/ingest status=200 latency_ms=354.3", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:39:53.538311Z"}
+{"event": "request_id=d8c7854ed8 method=GET path=/api/v1/documents status=200 latency_ms=354.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:39:53.538621Z"}
+INFO:     127.0.0.1:52337 - "OPTIONS /api/v1/ingest HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60222 - "GET /api/v1/documents HTTP/1.1" 200 OK
+{"event": "request_id=7f8e598cb3 method=GET path=/api/v1/documents status=200 latency_ms=277.1", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:39:53.818502Z"}
+INFO:     127.0.0.1:52337 - "GET /api/v1/documents HTTP/1.1" 200 OK
+{"event": "Ingestion started: Syed_Masood_GenAI_Resume.pdf", "level": "info", "logger": "pipeline.ingest_pipeline", "timestamp": "2026-08-29T18:39:53.825171Z"}
+{"event": "Processing 'Syed_Masood_GenAI_Resume.pdf' (type=document/pdf)", "level": "info", "logger": "chunking.document_processor", "timestamp": "2026-08-29T18:39:53.825453Z"}
+{"event": "Loaded 1 raw documents from 'Syed_Masood_GenAI_Resume.pdf'", "level": "info", "logger": "chunking.document_processor", "timestamp": "2026-08-29T18:39:54.023713Z"}
+{"event": "Splitter produced 7 chunks from 1 documents", "level": "info", "logger": "chunking.document_processor", "timestamp": "2026-08-29T18:39:54.024622Z"}
+{"event": "Produced 7 chunks from 'Syed_Masood_GenAI_Resume.pdf'", "level": "info", "logger": "chunking.document_processor", "timestamp": "2026-08-29T18:39:54.025173Z"}
+{"event": "Inserted 7 new chunks into Pinecone", "level": "info", "logger": "vectorstore.store", "timestamp": "2026-08-29T18:39:54.863799Z"}
+{"event": "BM25 build called with an empty corpus", "level": "warning", "logger": "retrieval.bm25_index", "timestamp": "2026-08-29T18:39:55.132955Z"}
+{"event": "Ingestion done: doc=Syed_Masood_GenAI_Resume.pdf produced=7 inserted=7 skipped=0 total=0", "level": "info", "logger": "pipeline.ingest_pipeline", "timestamp": "2026-08-29T18:39:55.133339Z"}
+{"event": "request_id=8c9c22e44e method=POST path=/api/v1/ingest status=201 latency_ms=1354.2", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:39:55.173575Z"}
+INFO:     127.0.0.1:60222 - "POST /api/v1/ingest HTTP/1.1" 201 Created
+{"event": "request_id=8c63a33bd2 method=GET path=/api/v1/documents status=200 latency_ms=564.3", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:39:55.744135Z"}
+INFO:     127.0.0.1:60222 - "GET /api/v1/documents HTTP/1.1" 200 OK
+{"event": "request_id=a81e35d7bc method=GET path=/api/v1/documents status=200 latency_ms=586.7", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:40:01.284618Z"}
+INFO:     127.0.0.1:60222 - "GET /api/v1/documents HTTP/1.1" 200 OK
+{"event": "request_id=e5d91d662f method=OPTIONS path=/api/v1/query status=200 latency_ms=0.4", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:40:20.846375Z"}
+INFO:     127.0.0.1:53225 - "OPTIONS /api/v1/query HTTP/1.1" 200 OK
+{"event": "BM25 index is empty \u2014 using semantic-only search", "level": "warning", "logger": "retrieval.hybrid_search", "timestamp": "2026-08-29T18:40:20.887273Z"}
+{"event": "Reranking done: 7 candidates \u2192 top-5 (score range: -11.4097 \u2013 1.7354)", "level": "info", "logger": "retrieval.reranker", "timestamp": "2026-08-29T18:40:22.625118Z"}
+{"event": "pipeline_metrics={'request_id': '6a753a4511', 'query_preview': 'what are the skills mentioned in the syed masood resume', 'total_ms': 2718.2, 'cache_hit': False, 'sanitise_ms': 0.2, 'cache_lookup_ms': 30.4, 'bm25_search_ms': 1393.9, 'semantic_search_ms': 0.0, 'rrf_fusion_ms': 0.0, 'rerank_ms': 344.5, 'generation_ms': 921.1, 'bm25_candidates': 0, 'semantic_candidates': 0, 'rrf_candidates': 7, 'reranked_candidates': 5, 'prompt_tokens_est': 720, 'answer_length': 388}", "level": "info", "logger": "pipeline.query_pipeline", "timestamp": "2026-08-29T18:40:23.574849Z"}
+{"event": "request_id=6a753a4511 method=POST path=/api/v1/query status=200 latency_ms=2725.3", "level": "info", "logger": "api.middleware.request_logger", "timestamp": "2026-08-29T18:40:23.576021Z"}
+INFO:     127.0.0.1:53225 - "POST /api/v1/query HTTP/1.1" 200 OK
+
+(venv) C:\Users\HP\OneDrive\Desktop\Prod_RAG>
+
+(venv) C:\Users\HP\OneDrive\Desktop\Prod_RAG>More? 'y' is not recognized as an internal or external command,
+operable program or batch file.
+
+(venv) C:\Users\HP\OneDrive\Desktop\Prod_RAG>

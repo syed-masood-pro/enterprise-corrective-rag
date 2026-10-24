@@ -1,0 +1,49 @@
+#web framework
+fastapi>=0.111.0
+uvicorn[standard]>=0.30.0
+python-multipart>=0.0.9
+
+#config and validation
+pydantic>=2.7.0
+pydantic-settings>=2.3.0
+python-dotenv>=1.0.1
+
+#langchain 
+langchain>=0.2.16
+langgraph>=0.2.0
+langchain-text-splitters>=0.20
+langchain-core>=0.2.38
+langchain-community>=0.2.16
+langchain-groq>=0.1.9
+langchain-huggingface>=0.0.3
+
+#document loading
+pymupdf>=1.24.0
+docx2txt>=0.8
+beautifulsoup4>=4.12.3
+lxml>=5.2.2
+openpyxl>=3.1.4
+
+#vectorstore
+pinecone>=5.0.0
+
+#bm25 kwyword search
+rank-bm25>=0.2.2
+
+#embeddings
+sentence-transformers>=3.0.0
+
+#rate limiting
+slowapi>=0.1.9
+
+#caching +semantic cache
+redis>=5.0.0
+cachetools>=5.3.3
+valkey>=6.0.0
+
+#http client and retry
+httpx>=0.27.0
+tenacity>=8.3.0
+
+#logging
+structlog>=24.2.0
